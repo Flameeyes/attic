@@ -30,13 +30,13 @@ tryouts "Basics" do
     :any.metaclass?
   end
   
-  dream [:@___attic_name]
+  dream ["@___attic_name"]
   drill "A Symbol's attic vars appear in all_instance_variables" do
     Symbol.extend Attic
     Symbol.attic :name
     a, b = :symbol1, :symbol2
     a.name = :roger
-    a.all_instance_variables
+    a.all_instance_variables.collect { |x| x.to_s }
   end
   
   dream []
